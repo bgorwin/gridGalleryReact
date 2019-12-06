@@ -12,6 +12,13 @@ const UserGridStyled = styled.div`
                        "photo desctiption";
 
 `
+export const MiniUserGrid = styled.div `
+  display: grid;
+  justify-content: left;
+  grid-template-columns: auto auto;
+  gap: 10px;
+`
+
 const Photo = styled.div`
   grid-area: photo;
 `
@@ -34,6 +41,6 @@ export default function() {
     <Photo><ProfileImage /></Photo>
     <Name>GridGallery</Name>
     <Label><strong> 400 </strong>Followers</Label>
-    <Description>Echo park pop-up stumptown selvage YOLO. Tattooed banjo chillwave cray actually vegan VHS chia austin health goth chartreuse ethical craft beer. Kitsch marfa godard, kickstarter tote bag +1 ethical. Kitsch fingerstache edison bulb squid williamsburg. Tacos tote bag everyday carry, etsy squid live-edge yr chia flexitarian microdosing kickstarter hexagon poutine activated charcoal.</Description>
+    <Description>Echo park pop-up stumptown selvage YOLO. Tattooed banjo chillwave cray actually vegan VHS chia austin health goth chartreuse ethical craft beer. Kitsch marfa godard, kickstarter tote bag +1 ethical.</Description>
   </UserGridStyled>
 }

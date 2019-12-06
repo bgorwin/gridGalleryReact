@@ -3,6 +3,9 @@ import { useParams, useHistory } from "react-router-dom";
 import Posts from '../Posts';
 import {Image} from '../App';
 import styled, {createGlobalStyle} from 'styled-components';
+import { PostGrid, InfoGrid } from './PostGrid';
+import { MiniUserGrid } from "../Profile/UserGrid";
+import { ProfileImage } from "../Profile/ProfileImage";
 
 const OverFlowHidden = createGlobalStyle`
   body {
@@ -14,9 +17,9 @@ const ModalStyled = styled.div`
   position: absolute;
   background: #fff;
   top: ${({top}) => top}px;
-  left: 10%;
-  right: 10%;
-  padding: 15px;
+  left: 25%;
+  right: 25%;
+  width: 600px;
   border: 2px solid #444;
 `
 
@@ -46,13 +49,21 @@ export function Modal() {
       }}
     >
       <ModalStyled top={window.scrollY + (window.innerHeight/2) - 250}>
-      <OverFlowHidden />
-        <h1>{image.title}</h1>
-        <Image inModal index={image.id} />
-        <button type="button" onClick={back}>
-          Close
-        </button>
-      </ModalStyled>
+        <OverFlowHidden />
+          <PostGrid>
+            <Image inModal index={image.id} />
+            <InfoGrid>
+              <MiniUserGrid>
+                <ProfileImage mini/>
+                <h3> Grid Gallery </h3>
+              </MiniUserGrid>
+              <div>
+                <h1>{image.title}</h1>
+              </div>
+              <div> 45 Likes </div>
+            </InfoGrid>
+          </PostGrid >
+        </ModalStyled>
     </div>
   );
 }
