@@ -5,39 +5,38 @@ import styled from 'styled-components';
 import Posts from '../Posts';
 import { Image } from '../App';
 
+
 const PhotoGrid = styled.div `
   display: grid;
   grid-template-columns: repeat(3, 305px);
   justify-content: center;
   gap: 20px;
 `
-const LinkGrid = styled.div`
-  display: grid;
-  grid-template-columns: auto auto;
-  justify-content
-`
+// const LinkGrid = styled.div`
+//   display: grid;
+//   grid-template-columns: auto auto;
+//   justify-content: center;
+//   gap: 30px;
+//   margin-bottom: 20px;
+// `
+//
+// const TabLink = styled(Link)`
+//   text-decoration: none;
+//   color: #ccc;
+//   text-transform: uppercase;
+//   letter-spacing: 3px;
+//   ${({selected}) => selected && 'color: black;'}
+// `
 
-const TabLink = styled(Link)`
-  text-decoration: none;
-  color: black;
-  width: 50px;
-`
+
 
 export function Gallery({match}) {
   let location = useLocation();
-
+  const cascade = location.search === '?type=cascade';
   return (
     <div>
       <UserGrid />
-      <LinkGrid>
-        <TabLink to={`${match}/test`}>
-          square
-        </TabLink>
-        <TabLink to={{pathname:`${match}`, search:"?type=cascade"}}>
-          cascade
-        </TabLink>
-      </LinkGrid>
-      <PhotoGrid>
+      <PhotoGrid cascade={cascade}>
         {Posts.map(i => (
           <Link
             key={i.id}

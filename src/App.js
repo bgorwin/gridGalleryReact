@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
+  // Link,
   useLocation,
   useParams
 } from "react-router-dom";
@@ -70,16 +70,7 @@ export const Image = styled.div`
 function Home() {
   return (
     <div>
-      <Link to="/gallery">Visit the Gallery</Link>
-      <h2>Featured Images</h2>
-      <ul>
-        <li>
-          <Link to="/img/2">Tomato</Link>
-        </li>
-        <li>
-          <Link to="/img/4">Crimson</Link>
-        </li>
-      </ul>
+      <Gallery />
     </div>
   );
 }
